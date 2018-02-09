@@ -10,7 +10,7 @@ const App = () => {
   return (
     <div>
       <BrowserRouter>
-        <div> </div>
+        <Route path="/" component={Landing} />
       </BrowserRouter>
     </div>
   );
