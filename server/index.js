@@ -15,10 +15,11 @@ const app = express();
 app.use(
   csp({
     directives: {
-      fontSrc: [`self`, `data:`]
+      fontSrc: [`*`, `data`]
     }
   })
 );
+
 app.use(bodyParser.json());
 
 app.use(
