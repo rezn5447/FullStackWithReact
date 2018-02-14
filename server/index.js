@@ -2,7 +2,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
-const csp = require(`helmet-csp`);
 const passport = require('passport');
 const keys = require('../config/keys');
 require('./models/User');
@@ -11,14 +10,6 @@ require('./services/passport');
 mongoose.connect(keys.mongoURI);
 
 const app = express();
-
-app.use(
-  csp({
-    directives: {
-      fontSrc: [`*`, `data:`]
-    }
-  })
-);
 
 app.use(bodyParser.json());
 
@@ -43,7 +34,8 @@ if (process.env.NODE_ENV === 'production') {
   // if it doesn't recognize the route
   const path = require('path');
   app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../client', 'build', 'index.html'));
+    console.log(req.body);
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
   });
 }
 const PORT = process.env.PORT || 5000;
