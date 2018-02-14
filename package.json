@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node server/index.js",
     "server": "nodemon server/index.js",
-    "client": "(cd ./server/client && yarn start)",
+    "client": "(cd ./client && yarn start)",
     "dev": "concurrently \"yarn server\" \"yarn client\"",
     "client-install": "(cd ./client && yarn install)",
     "client-build": "(cd ./client && yarn build)",
