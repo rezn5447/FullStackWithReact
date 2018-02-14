@@ -10,11 +10,12 @@
   "scripts": {
     "start": "node server/index.js",
     "server": "nodemon server/index.js",
-    "client": "(cd ./client && yarn start)",
+    "client": "(cd ./server/client && yarn start)",
     "dev": "concurrently \"yarn server\" \"yarn client\"",
-    "client-install": "(cd ./client && yarn install)",
-    "client-build": "(cd ./client && yarn build)",
-    "heroku-postbuild": "YARN_PRODUCTION=false yarn run client-install && yarn run client-build"
+    "client-install": "(cd ./server/client && yarn install)",
+    "client-build": "(cd ./server/client && yarn build)",
+    "heroku-postbuild":
+      "YARN_PRODUCTION=false yarn run client-install && yarn run client-build"
   },
   "repository": {
     "type": "git",
