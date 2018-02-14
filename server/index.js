@@ -15,7 +15,7 @@ const app = express();
 app.use(
   csp({
     directives: {
-      fontSrc: [`*`, `data`]
+      fontSrc: [`*`, `data:`]
     }
   })
 );
