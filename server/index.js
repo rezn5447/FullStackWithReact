@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
+const csp = require(`helmet-csp`);
 const passport = require('passport');
 const keys = require('../config/keys');
 require('./models/User');
@@ -10,6 +11,14 @@ require('./services/passport');
 mongoose.connect(keys.mongoURI);
 
 const app = express();
+
+app.use(
+  csp({
+    directives: {
+      fontSrc: [`self`, `data:`]
+    }
+  })
+);
 app.use(bodyParser.json());
 
 app.use(
