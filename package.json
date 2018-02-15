@@ -10,12 +10,11 @@
   "scripts": {
     "start": "node server/index.js",
     "server": "nodemon server/index.js",
-    "client": "(cd ./server/client && yarn start)",
+    "client": "(cd ./client && yarn start)",
     "dev": "concurrently \"yarn server\" \"yarn client\"",
-    "client-install": "(cd ./server/client && yarn install)",
-    "client-build": "(cd ./server/client && yarn build)",
-    "heroku-postbuild":
-      "YARN_PRODUCTION=false yarn run client-install && yarn run client-build"
+    "client-install": "(cd ./client && yarn install)",
+    "client-build": "(cd ./client && yarn build)",
+    "heroku-postbuild": "YARN_PRODUCTION=false yarn run client-install && yarn run client-build"
   },
   "repository": {
     "type": "git",
@@ -38,6 +37,7 @@
     "nodemon": "^1.14.12",
     "passport": "^0.4.0",
     "passport-google-oauth20": "^1.0.0",
+    "react-materialize": "^1.1.2",
     "react-stripe-checkout": "^2.6.3",
     "redux-thunk": "^2.2.0",
     "stripe": "^5.4.0"

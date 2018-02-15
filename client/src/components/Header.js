@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Navbar } from 'react-materialize';
 import { Link } from 'react-router-dom';
 import Payments from './Payments';
 
@@ -31,18 +32,11 @@ class Header extends Component {
 
   render() {
     return (
-      <nav>
+      <Navbar brand="Emaily" right>
         <div className="nav-wrapper">
-          <Link
-            to={this.props.auth ? '/surveys' : '/'}
-            className="left brand-logo"
-            style={{ marginLeft: '10px' }}
-          >
-            Emaily
-          </Link>
           <ul className="right">{this.renderContent()}</ul>
         </div>
-      </nav>
+      </Navbar>
     );
   }
 }
