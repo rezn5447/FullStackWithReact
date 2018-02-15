@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Navbar } from 'react-materialize';
+import { Navbar, Row, Col } from 'react-materialize';
 import { Link } from 'react-router-dom';
 import Payments from './Payments';
 
@@ -11,21 +11,21 @@ class Header extends Component {
         return;
       case false:
         return (
-          <li>
+          <Col>
             <a href="/auth/google">Login With Google</a>
-          </li>
+          </Col>
         );
       default:
         return [
-          <li key="1">
+          <Col key="1">
             <Payments />
-          </li>,
-          <li key="2" style={{ margin: '0 10px' }}>
+          </Col>,
+          <Col key="2" style={{ margin: '0 10px' }}>
             Credits: {this.props.auth.credits}
-          </li>,
-          <li key="3">
+          </Col>,
+          <Col key="3">
             <a href="/api/logout">Logout</a>
-          </li>
+          </Col>
         ];
     }
   }
@@ -34,7 +34,7 @@ class Header extends Component {
     return (
       <Navbar brand="Emaily" right>
         <div className="nav-wrapper">
-          <ul className="right">{this.renderContent()}</ul>
+          <Row>{this.renderContent()}</Row>
         </div>
       </Navbar>
     );
